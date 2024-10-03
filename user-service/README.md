@@ -113,8 +113,10 @@ A Dockerfile is included for containerization. To build and run the Docker conta
 
 ```bash
 docker build -t user-service .
-docker run -p 3000:3000 user-service
+docker run --network host -e MONGODB_URI=mongodb://127.0.0.1:27017/user_service -e JWT_SECRET=your_jwt_secret_here user-service
 ```
+
+Replace `your_jwt_secret_here` with a secure random string.
 
 ## Contributing
 
