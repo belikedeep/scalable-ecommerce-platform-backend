@@ -67,6 +67,16 @@ The service uses `express-async-handler` for handling asynchronous errors. Make 
 
 Ensure that you keep your JWT secret secure and use HTTPS in production environments.
 
+## Docker
+
+A Dockerfile is included for containerization. To build and run the Docker container:
+
+```bash
+docker build -t shopping-cart-service .
+docker run --network host -e MONGODB_URI=mongodb://127.0.0.1:27017/shopping_cart_service
+ -e JWT_SECRET=SUP3RS3CR3TK3Y -e PRODUCT_CATALOG_SERVICE_URL=http://localhost:3001/api shopping-cart-service
+```
+
 ## Future Improvements
 
 - Implement caching for product information to reduce calls to the Product Catalog Service

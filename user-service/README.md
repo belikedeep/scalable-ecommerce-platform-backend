@@ -69,44 +69,6 @@ Follow these steps to get your development environment set up:
 - `GET /api/users/profile`: Get the authenticated user's profile (protected route)
 - `PUT /api/users/profile`: Update the authenticated user's profile (protected route)
 
-## Usage Examples
-
-Here are some examples of how to use the API endpoints:
-
-### Register a new user
-
-```bash
-curl -X POST http://localhost:3000/api/users/register \
-     -H "Content-Type: application/json" \
-     -d '{"username": "newuser", "email": "newuser@example.com", "password": "securepassword", "firstName": "John", "lastName": "Doe"}'
-```
-
-### Login
-
-```bash
-curl -X POST http://localhost:3000/api/users/login \
-     -H "Content-Type: application/json" \
-     -d '{"username": "newuser", "password": "securepassword"}'
-```
-
-This will return a JWT token. Use this token for authenticated requests.
-
-### Get user profile
-
-```bash
-curl http://localhost:3000/api/users/profile \
-     -H "Authorization: Bearer YOUR_JWT_TOKEN"
-```
-
-### Update user profile
-
-```bash
-curl -X PUT http://localhost:3000/api/users/profile \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-     -d '{"firstName": "Jane", "lastName": "Doe"}'
-```
-
 ## Docker
 
 A Dockerfile is included for containerization. To build and run the Docker container:
