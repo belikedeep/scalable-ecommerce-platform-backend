@@ -41,6 +41,25 @@ This microservice is responsible for processing orders, tracking order status, a
 - PUT /api/orders/:orderId/status - Update order status
 - GET /api/orders/user/:userId - Get order history for a user
 
+## Docker
+
+A Dockerfile is included for containerization. To build and run the Docker container:
+
+```bash
+docker build -t order-service .
+
+docker run --network host \
+  -e MONGODB_URI=mongodb://127.0.0.1:27017/order-service \
+  -e JWT_SECRET=SUP3RS3CR3TK3Y \
+  -e USER_SERVICE_URL=http://localhost:3000 \
+  -e PRODUCT_SERVICE_URL=http://localhost:3001 \
+  order-service
+
+or
+
+docker run --network host --env-file .env order-service
+```
+
 ## Troubleshooting
 
 1. Authentication Issues:
